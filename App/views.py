@@ -1,10 +1,14 @@
 from django.shortcuts import render
 
 from mal import AnimeSearch
+from . import models
 
 # Create your views here.
 def index(request):
   if request.method == 'POST':
     search = request.POST['search']
-    anime = AnimeSearch(search).results[0]
+    a = AnimeSearch(search).results[0]
+
+    anime = models.Anime(title=a.title, image_url=a.image_url, episodes=a.episodes)
+    anime.save()
   return render(request, 'App/index.html')

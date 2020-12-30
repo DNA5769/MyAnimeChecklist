@@ -14,5 +14,11 @@
     {% csrf_token %}
     <input type="text" name="search">
   </form>
+  <div>
+    {% for a in anime %}
+      {{a.title}}
+      <br>
+    {% endfor %}
+  </div>
 </body>
 </html>

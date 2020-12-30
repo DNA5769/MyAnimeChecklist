@@ -11,4 +11,7 @@ def index(request):
 
     anime = models.Anime(title=a.title, image_url=a.image_url, episodes=a.episodes)
     anime.save()
-  return render(request, 'App/index.html')
+
+  anime = models.Anime.objects.all()
+  context = {'anime': anime}
+  return render(request, 'App/index.html', context)

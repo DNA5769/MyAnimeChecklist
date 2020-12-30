@@ -10,6 +10,9 @@
   <title>MAC</title>
 </head>
 <body>
-  <h1>Hello World</h1>
+  <form action="/" method="POST">
+    {% csrf_token %}
+    <input type="text" name="search">
+  </form>
 </body>
 </html>

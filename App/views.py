@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from mal import AnimeSearch
 from . import models
@@ -15,3 +15,10 @@ def index(request):
   anime = models.Anime.objects.all()
   context = {'anime': anime}
   return render(request, 'App/index.html', context)
+
+def change_status(request, pk, status):
+  anime = models.Anime.objects.get(id=pk)
+  anime.status = {'1':'Planning to Watch', '2':'Watching', '3':'Completed'}[status]
+  anime.save()
+
+  return redirect('/')

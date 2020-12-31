@@ -39,19 +39,19 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   {% if a.status == 'Planning to Watch' %}
-                    <button type="button" class="btn btn-sm btn-primary">Planning to Watch</button>
+                    <button onclick="window.location = '/changestatus/{{a.id}}/1';" type="button" class="btn btn-sm btn-primary">Planning to Watch</button>
                   {% else %}
-                    <button type="button" class="btn btn-sm btn-outline-primary">Planning to Watch</button>
+                    <button onclick="window.location = '/changestatus/{{a.id}}/1';" type="button" class="btn btn-sm btn-outline-primary">Planning to Watch</button>
                   {% endif %}
                   {% if a.status == 'Watching' %}
-                    <button type="button" class="btn btn-sm btn-warning">Watching</button>
+                    <button onclick="window.location = '/changestatus/{{a.id}}/2';" type="button" class="btn btn-sm btn-warning">Watching</button>
                   {% else %}
-                    <button type="button" class="btn btn-sm btn-outline-warning">Watching</button>
+                    <button onclick="window.location = '/changestatus/{{a.id}}/2';" type="button" class="btn btn-sm btn-outline-warning">Watching</button>
                   {% endif %}
                   {% if a.status == 'Completed' %}
-                    <button type="button" class="btn btn-sm btn-success">Completed</button>
+                    <button onclick="window.location = '/changestatus/{{a.id}}/3';" type="button" class="btn btn-sm btn-success">Completed</button>
                   {% else %}
-                    <button type="button" class="btn btn-sm btn-outline-success">Completed</button>
+                    <button onclick="window.location = '/changestatus/{{a.id}}/3';" type="button" class="btn btn-sm btn-outline-success">Completed</button>
                   {% endif %}
                 </div>
               </div>

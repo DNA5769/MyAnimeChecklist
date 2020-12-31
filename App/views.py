@@ -10,8 +10,12 @@ def index(request):
     results = AnimeSearch(search).results
     if len(results)>0:
       a = results[0]
-      anime = models.Anime(title=a.title, image_url=a.image_url)
-      anime.save()
+
+      try:
+        temp = models.Anime.objects.get(title=a.title)
+      except models.Anime.DoesNotExist:
+        anime = models.Anime(title=a.title, image_url=a.image_url)
+        anime.save()
 
   anime = models.Anime.objects.all()
   context = {'anime': anime}
